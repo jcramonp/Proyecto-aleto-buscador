@@ -5,7 +5,7 @@
 // 2. El sistema debe permitir a los usuarios guardar sus preferencias, como temas de interés y configuraciones de idioma.
 //3. El sistema debe ofrecer contenido multimedia, como videos y presentaciones, para mejorar la experiencia de aprendizaje
 
-public class SistemaAprendizaje {
+class SistemaAprendizaje {
 
     
     private String[] contenidoMultimedia;
