@@ -46,9 +46,9 @@ public class SistemaAprendizaje {
     temaCount = 0;
     idiomaCount = 0;
     scanner = new Scanner(System.in);
-    ejerciciosRealizados = new String[100];  // Inicializar la matriz de ejerciciosRealizados
+    ejerciciosRealizados = new String[100];  
     cantidadEjercicios = 0;
-    recursosFavoritos = new ArrayList<>();  // Inicializar la lista de recursosFavoritos
+    recursosFavoritos = new ArrayList<>();  
   }
   
   public void agregarContenidoMultimedia(String contenido) {
@@ -104,29 +104,29 @@ public class SistemaAprendizaje {
     }
   }
 
-    // Nuevos métodos para los requisitos adicionales
+    
 
   public void realizarEjerciciosPractica() {
     System.out.println("Realizando ejercicios de práctica y rastreando progreso...");
     
-    // Verificar si no hay ejercicios realizados
+    
     if (cantidadEjercicios == 0) {
         System.out.println("No hay ejercicios realizados.");
         return;
     }
 
-    // Mostrar los ejercicios realizados
+   
     System.out.println("Ejercicios Realizados: " + Arrays.toString(ejerciciosRealizados));
 
 
     
-    // M
     
-    // Solicitar al usuario que ingrese un nuevo ejercicio para realizar
+    
+    
     System.out.print("Ingrese el nombre del ejercicio que desea realizar: ");
     String nuevoEjercicio = scanner.nextLine();
     
-    // Verificar si el ejercicio ya ha sido realizado
+    
     boolean yaRealizado = false;
     for (int i = 0; i < cantidadEjercicios; i++) {
       if (ejerciciosRealizados[i].equals(nuevoEjercicio)) {
@@ -137,25 +137,25 @@ public class SistemaAprendizaje {
           System.out.println("Progreso reiniciado para el ejercicio.");
         } else {
           System.out.println("Operación cancelada.");
-          return; // Salir del método si no se reinicia el progreso
+          return; 
         }
       }
     }
 
-    // Si el ejercicio no ha sido realizado previamente, agregarlo a la lista
+   
     if (!yaRealizado) {
       ejerciciosRealizados[cantidadEjercicios++] = nuevoEjercicio;
       System.out.println("Ejercicio agregado al progreso.");
     }
     
-    // Mostrar los ejercicios actualizados
+   
     System.out.println("Ejercicios Actualizados: " + Arrays.toString(ejerciciosRealizados));
   }
   
   public void importarDatosExternos() {
     System.out.println("Importando datos externos y convirtiéndolos a un formato utilizable...");
 
-    // Lógica para importar datos externos (ejemplo: desde el teclado)
+    
     System.out.println("Ingrese los datos externos (escriba 'fin' para finalizar la entrada):");
 
     ArrayList<String> datosExternos = new ArrayList<>();
@@ -169,7 +169,7 @@ public class SistemaAprendizaje {
         datosExternos.add(linea);
     }
 
-    // Cerrar el escáner después de utilizarlo
+    
     scanner.close();
 
     System.out.println("Datos externos importados correctamente:");
@@ -181,8 +181,7 @@ public class SistemaAprendizaje {
   public void presentarResultados() {
     System.out.println("Presentando resultados de búsqueda...");
     
-    // Lógica para presentar resultados de búsqueda de manera clara y ordenada,
-    // con opciones de filtro y ordenamiento (ejemplo: mostrar contenido multimedia)
+    
     if (multimediaCount == 0) {
       System.out.println("No hay contenido multimedia para mostrar.");
     } else {
@@ -196,8 +195,7 @@ public class SistemaAprendizaje {
   public void recomendacionesEstudio() {
     System.out.println("Proporcionando recomendaciones de lugares para estudiar...");
     
-    // Lógica para proporcionar recomendaciones de lugares para estudiar basadas en la ubicación
-    // y preferencias del usuario (ejemplo: sugerir una biblioteca cercana)
+   
     System.out.print("Ingrese su ubicación actual: ");
     String ubicacionActual = scanner.nextLine();
     
@@ -206,24 +204,23 @@ public class SistemaAprendizaje {
     System.out.println("2. Centro de Estudio XYZ");
     System.out.println("3. Café Estudiantil");
     
-    // Puedes agregar más lógica de recomendaciones según tus necesidades
+    
   }
   
   public void consejosEstudio() {
     System.out.println("Ofreciendo consejos y técnicas de estudio personalizadas...");
     
-    // Lógica para ofrecer consejos y técnicas de estudio personalizadas según el historial de uso del usuario
+   
     System.out.print("Ingrese su nombre de usuario: ");
     String nombreUsuario = scanner.nextLine();
     
-    // Puedes tener un sistema más sofisticado basado en el historial del usuario
-    // Aquí, simplemente proporcionaremos consejos genéricos
+ 
     System.out.println("¡Hola, " + nombreUsuario + "! Aquí van algunos consejos de estudio:");
     System.out.println("1. Establece metas claras antes de cada sesión de estudio.");
     System.out.println("2. Divide el material en bloques más pequeños para facilitar la comprensión.");
     System.out.println("3. Toma descansos regulares para mantener la concentración.");
     
-    // Puedes agregar más consejos según tus conocimientos específicos sobre el usuario
+    
   }
   
   public void registroConsultasFrecuentes() {
@@ -245,14 +242,14 @@ public class SistemaAprendizaje {
     System.out.println("Gestionando recursos favoritos...");
     System.out.println("Gestionando recursos favoritos...");
     
-    // Mostrar los recursos actuales
+   
     System.out.println("Recursos Actuales: " + recursosFavoritos);
     
-    // Solicitar al usuario que ingrese un nuevo recurso para gestionar
+    
     System.out.print("Ingrese el recurso que desea gestionar: ");
     String nuevoRecurso = scanner.nextLine();
     
-    // Verificar si el recurso ya está en favoritos
+    
     if (recursosFavoritos.contains(nuevoRecurso)) {
       System.out.println("El recurso ya está en favoritos. ¿Desea quitarlo? (S/N)");
       String opcion = scanner.nextLine().toUpperCase();
@@ -263,12 +260,12 @@ public class SistemaAprendizaje {
         System.out.println("Operación cancelada.");
       }
     } else {
-      // Agregar el nuevo recurso a favoritos
+      
       recursosFavoritos.add(nuevoRecurso);
       System.out.println("Recurso agregado a favoritos.");
     }
     
-    // Mostrar los recursos actualizados
+   
     System.out.println("Recursos Actualizados: " + recursosFavoritos);
   }
 
