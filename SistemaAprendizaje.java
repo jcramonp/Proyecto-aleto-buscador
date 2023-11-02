@@ -21,20 +21,20 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SistemaAprendizaje {
-  private String[] contenidoMultimedia;
-  private String[] usuarios;
-  private String[] temasDeInteres;
-  private String[] idiomas;
-  private int multimediaCount;
-  private int usuarioCount;
-  private int temaCount;
-  private int idiomaCount;
-  private Scanner scanner;
-  private String[] ejerciciosRealizados;
-  private int cantidadEjercicios;
-  private String consultaFrecuente;
-  private List<String> recursosFavoritos;
+class SistemaAprendizaje {
+   String[] contenidoMultimedia;
+   String[] usuarios;
+   String[] temasDeInteres;
+   String[] idiomas;
+   int multimediaCount;
+   int usuarioCount;
+   int temaCount;
+   int idiomaCount;
+   Scanner scanner;
+   String[] ejerciciosRealizados;
+   int cantidadEjercicios;
+   String consultaFrecuente;
+   List<String> recursosFavoritos;
   
   public SistemaAprendizaje() {
     contenidoMultimedia = new String[100];
