@@ -17,7 +17,6 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
-
 class SistemaAprendizaje {
    String[] contenidoMultimedia;
    String[] usuarios;
@@ -32,7 +31,6 @@ class SistemaAprendizaje {
    int cantidadEjercicios;
    String consultaFrecuente;
    List<String> recursosFavoritos;
-  
   public SistemaAprendizaje() {
     contenidoMultimedia = new String[100];
     usuarios = new String[100];
@@ -43,57 +41,79 @@ class SistemaAprendizaje {
     temaCount = 0;
     idiomaCount = 0;
     scanner = new Scanner(System.in);
-    ejerciciosRealizados = new String[100];  
+    ejerciciosRealizados = new String[100];
+    Arrays.fill(ejerciciosRealizados, "");
     cantidadEjercicios = 0;
     recursosFavoritos = new ArrayList<>();  
   }
-  
-  public void agregarContenidoMultimedia(String contenido) {
-    contenidoMultimedia[multimediaCount++] = contenido;
-    System.out.println("Contenido multimedia agregado: " + contenido);
+  public void agregarContenidoMultimedia() {
+    System.out.println("Como se llama el contenido que vas a agregar? ");
+    String contenido = scanner.nextLine();
+
+    System.out.println("Que tipo de contenido es? (Texto/Video/Audio) ");
+    String tipoContenido = scanner.nextLine();
+
+    contenidoMultimedia[multimediaCount++] = contenido + " - " + tipoContenido;
+
+    System.out.println("El contenido de tipo " + tipoContenido + " ha sido agregado " + contenido);
   }
-  
-  public void guardarTemaDeInteres(String usuario, String tema) {
-    usuarios[usuarioCount] = usuario;
-    temasDeInteres[temaCount] = tema;
-    System.out.println("Preferencia de tema de interés guardada para " + usuario + ": " + tema);
-    usuarioCount++;
-    temaCount++;
+
+  public void guardarTemaDeInteres(){
+    System.out.println("Cual es tu nombre? ");
+    String usuario = scanner.nextLine();
+
+    List<String> temasLista = new ArrayList<>();
+    System.out.println("Introduce tus temas de interés, escribe 'fin' para terminar de agregar temas de interes ");
+    while(true) {
+      String tema = scanner.nextLine();
+      if("fin".equalsIgnoreCase(tema)) {
+        break;
+      }
+
+      temasLista.add(tema);
+    }
+
+    if(!temasLista.isEmpty()) {
+      usuarios[usuarioCount++] = usuario;
+      temasDeInteres[temaCount++] = String.join(", ", temasLista);
+      System.out.println("Preferencia de tema(s) de interés guardada para " + usuario + ": " + String.join(", ", temasLista));
+    }
   }
-  
-  public void guardarIdioma(String usuario, String idioma) {
+
+  public void guardarIdioma() {
+    System.out.println("Introduce tu nombre del usuario ");
+    String usuario = scanner.nextLine();
+
+    System.out.println("Introduce el idioma de preferencia ");
+    String idioma = scanner.nextLine();
+
     usuarios[usuarioCount] = usuario;
     idiomas[idiomaCount] = idioma;
     System.out.println("Configuración de idioma guardada para " + usuario + ": " + idioma);
     usuarioCount++;
     idiomaCount++;
   }
-  
+
+
   public void buscarAvanzado(String fecha, String autor, String tema) {
     System.out.println("Realizando búsqueda avanzada...");
-    
     for (int i = 0; i < multimediaCount; i++) {
       String contenido = contenidoMultimedia[i];
       String[] partes = contenido.split(" - ");
-      
       if (partes.length >= 3) {
         String contenidoFecha = partes[0];
         String contenidoAutor = partes[1];
         String contenidoTema = partes[2];
-        
         boolean cumpleCriterios = true;
         if (fecha != null && !contenidoFecha.equals(fecha)) {
           cumpleCriterios = false;
         }
-        
         if (autor != null && !contenidoAutor.equals(autor)) {
           cumpleCriterios = false;
         }
-        
         if (tema != null && !contenidoTema.equals(tema)) {
           cumpleCriterios = false;
         }
-        
         if (cumpleCriterios) {
           System.out.println("Resultado encontrado: " + contenido);
         }
@@ -101,29 +121,15 @@ class SistemaAprendizaje {
     }
   }
 
-    
-
   public void realizarEjerciciosPractica() {
     System.out.println("Realizando ejercicios de práctica y rastreando progreso...");
-    
-    
     if (cantidadEjercicios == 0) {
-        System.out.println("No hay ejercicios realizados.");
+        System.out.println("No haz ejercicios realizados ");
         return;
     }
-
-   
     System.out.println("Ejercicios Realizados: " + Arrays.toString(ejerciciosRealizados));
-
-
-    
-    
-    
-    
     System.out.print("Ingrese el nombre del ejercicio que desea realizar: ");
     String nuevoEjercicio = scanner.nextLine();
-    
-    
     boolean yaRealizado = false;
     for (int i = 0; i < cantidadEjercicios; i++) {
       if (ejerciciosRealizados[i].equals(nuevoEjercicio)) {
@@ -138,26 +144,17 @@ class SistemaAprendizaje {
         }
       }
     }
-
-   
     if (!yaRealizado) {
       ejerciciosRealizados[cantidadEjercicios++] = nuevoEjercicio;
       System.out.println("Ejercicio agregado al progreso.");
     }
-    
-   
     System.out.println("Ejercicios Actualizados: " + Arrays.toString(ejerciciosRealizados));
   }
-  
   public void importarDatosExternos() {
     System.out.println("Importando datos externos y convirtiéndolos a un formato utilizable...");
-
-    
-    System.out.println("Ingrese los datos externos (escriba 'fin' para finalizar la entrada):");
-
+    System.out.println("Ingresa los datos que quieras proporcionarnos, escribe fin para termiinar de agregarlos ");
     ArrayList<String> datosExternos = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
-
     while (true) {
         String linea = scanner.nextLine();
         if (linea.equalsIgnoreCase("fin")) {
@@ -165,67 +162,44 @@ class SistemaAprendizaje {
         }
         datosExternos.add(linea);
     }
-
-    
-    scanner.close();
-
-    System.out.println("Datos externos importados correctamente:");
+    System.out.println("Los datos externos han sido importados correctamente ");
     for (String dato : datosExternos) {
         System.out.println(dato);
     }
-}
-  
+  }
   public void presentarResultados() {
     System.out.println("Presentando resultados de búsqueda...");
-    
-    
     if (multimediaCount == 0) {
       System.out.println("No hay contenido multimedia para mostrar.");
     } else {
-      System.out.println("Contenido multimedia disponible:");
+      System.out.println("El contenido multimedia disponible es ");
       for (int i = 0; i < multimediaCount; i++) {
         System.out.println((i + 1) + ". " + contenidoMultimedia[i]);
       }
     }
   }
-  
   public void recomendacionesEstudio() {
     System.out.println("Proporcionando recomendaciones de lugares para estudiar...");
-    
-   
-    System.out.print("Ingrese su ubicación actual: ");
+    System.out.print("Ingresa tu ubicación actual ");
     String ubicacionActual = scanner.nextLine();
-    
     System.out.println("Recomendación de lugares para estudiar cerca de " + ubicacionActual + ":");
-    System.out.println("1. Biblioteca Central");
-    System.out.println("2. Centro de Estudio XYZ");
+    System.out.println("1. Biblioteca Central Eafit");
+    System.out.println("2. Centro de Estudio " + ubicacionActual);
     System.out.println("3. Café Estudiantil");
-    
-    
   }
-  
   public void consejosEstudio() {
     System.out.println("Ofreciendo consejos y técnicas de estudio personalizadas...");
-    
-   
     System.out.print("Ingrese su nombre de usuario: ");
     String nombreUsuario = scanner.nextLine();
-    
- 
     System.out.println("¡Hola, " + nombreUsuario + "! Aquí van algunos consejos de estudio:");
     System.out.println("1. Establece metas claras antes de cada sesión de estudio.");
     System.out.println("2. Divide el material en bloques más pequeños para facilitar la comprensión.");
     System.out.println("3. Toma descansos regulares para mantener la concentración.");
-    
-    
   }
-  
   public void registroConsultasFrecuentes() {
     System.out.println("Registrando las consultas más frecuentes...");
-    
-    System.out.print("Ingrese su consulta: ");
+    System.out.print("Ingresa tu consulta frecuente ");
     String nuevaConsulta = scanner.nextLine();
-    
     if (nuevaConsulta.equals(consultaFrecuente)) {
       System.out.println("Consulta ya registrada como frecuente: " + nuevaConsulta);
     } else {
@@ -233,20 +207,11 @@ class SistemaAprendizaje {
       System.out.println("Nueva consulta frecuente registrada: " + nuevaConsulta);
     }
   }
-  
-  
   public void gestionFavoritos() {
     System.out.println("Gestionando recursos favoritos...");
-    System.out.println("Gestionando recursos favoritos...");
-    
-   
     System.out.println("Recursos Actuales: " + recursosFavoritos);
-    
-    
     System.out.print("Ingrese el recurso que desea gestionar: ");
     String nuevoRecurso = scanner.nextLine();
-    
-    
     if (recursosFavoritos.contains(nuevoRecurso)) {
       System.out.println("El recurso ya está en favoritos. ¿Desea quitarlo? (S/N)");
       String opcion = scanner.nextLine().toUpperCase();
@@ -257,27 +222,20 @@ class SistemaAprendizaje {
         System.out.println("Operación cancelada.");
       }
     } else {
-      
       recursosFavoritos.add(nuevoRecurso);
       System.out.println("Recurso agregado a favoritos.");
     }
-    
-   
     System.out.println("Recursos Actualizados: " + recursosFavoritos);
   }
+}
 
-
+class Main{
   public static void main(String[] args) {
     SistemaAprendizaje sistema = new SistemaAprendizaje();
-    
-    sistema.agregarContenidoMultimedia("2023-09-02 - Autor1 - Tema1");
-    sistema.agregarContenidoMultimedia("2023-09-03 - Autor2 - Tema2");
-    sistema.guardarTemaDeInteres("usuario1", "Ciencia");
-    sistema.agregarContenidoMultimedia("2023-09-02 - Autor1 - Tema1");
-    sistema.agregarContenidoMultimedia("2023-09-03 - Autor2 - Tema2");
-    sistema.guardarTemaDeInteres("usuario1", "Ciencia");
-    sistema.guardarIdioma("usuario1", "Español");
-    sistema.buscarAvanzado("2023-09-02", "Autor1", "Tema1");
+    sistema.agregarContenidoMultimedia();
+    sistema.agregarContenidoMultimedia();
+    sistema.guardarTemaDeInteres();
+    sistema.guardarIdioma();
     sistema.realizarEjerciciosPractica();
     sistema.importarDatosExternos();
     sistema.presentarResultados();
