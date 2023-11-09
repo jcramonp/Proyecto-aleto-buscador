@@ -3,17 +3,14 @@
 // Priorizaremos los siguientes requisitos funcionales:
 // 1. El sistema debe permitir a los usuarios realizar búsquedas avanzadas utilizando múltiples criterios, como fecha, autor o tema.
 // 2. El sistema debe permitir a los usuarios guardar sus preferencias, como temas de interés y configuraciones de idioma.
-// 4. El sistema debe ofrecer contenido multimedia, como videos y presentaciones, para mejorar la experiencia de aprendizaje.
-// 5. El sistema debe permitir a los usuarios realizar búsquedas avanzadas utilizando múltiples criterios, como fecha, autor o tema.
-// 6. El sistema debe ser capaz de importar datos externos de fuentes web y convertirlos en un formato utilizable.
-// 7. El sistema debe permitir a los usuarios realizar ejercicios de práctica y rastrear su progreso.
-// 8. El sistema debe ofrecer contenido multimedia, como videos y presentaciones, para mejorar la experiencia de aprendizaje.
-// 9. El sistema debe presentar resultados de búsqueda de manera clara y ordenada, con opciones de filtro y ordenamiento.
-// 10. El sistema debe proporcionar recomendaciones de lugares para estudiar basadas en la ubicación y las preferencias del usuario.
-// 11. El sistema debe ofrecer consejos y técnicas de estudio relevantes para el usuario, personalizados según su historial de uso.
-// 12. Deberá llevar un registro de las consultas más frecuentes.
-// 13. El sistema debe permitir a los usuarios guardar sus preferencias, como temas de interés y configuraciones de idioma.
-// 14. Deberá ofrecer la capacidad de que los usuarios guarden recursos como favoritos o marquen elementos para su posterior revisión, asegurando que los usuarios puedan acceder fácilmente a contenido relevante en el futuro.
+// 3. El sistema debe ofrecer contenido multimedia, como videos y presentaciones, para mejorar la experiencia de aprendizaje.
+// 4. El sistema debe ser capaz de importar datos externos de fuentes web y convertirlos en un formato utilizable.
+// 5. El sistema debe permitir a los usuarios realizar ejercicios de práctica y rastrear su progreso.
+// 6. El sistema debe presentar resultados de búsqueda de manera clara y ordenada, con opciones de filtro y ordenamiento.
+// 7. El sistema debe proporcionar recomendaciones de lugares para estudiar basadas en la ubicación y las preferencias del usuario.
+// 8. El sistema debe ofrecer consejos y técnicas de estudio relevantes para el usuario, personalizados según su historial de uso.
+// 9. Deberá llevar un registro de las consultas más frecuentes.
+// 10. Deberá ofrecer la capacidad de que los usuarios guarden recursos como favoritos o marquen elementos para su posterior revisión, asegurando que los usuarios puedan acceder fácilmente a contenido relevante en el futuro.
 
 
 import java.util.Arrays;
