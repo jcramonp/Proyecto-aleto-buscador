@@ -11,7 +11,7 @@
 // 8. El sistema debe ofrecer consejos y técnicas de estudio relevantes para el usuario, personalizados según su historial de uso.
 // 9. Deberá llevar un registro de las consultas más frecuentes.
 // 10. Deberá ofrecer la capacidad de que los usuarios guarden recursos como favoritos o marquen elementos para su posterior revisión, asegurando que los usuarios puedan acceder fácilmente a contenido relevante en el futuro.
-
+// 11. El sistema debe permitir al usuario buscar ejercicios y saber si ya los realizó o no.
 
 import java.util.Arrays;
 import java.util.Scanner;
